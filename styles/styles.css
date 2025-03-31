@@ -68,3 +68,34 @@ header{
     margin-top: 130px;
     list-style: none;
 }
+
+.OverallInventory {
+    width: auto;
+    padding: 10px;
+    background-color: white;
+    margin: 15px 20px;
+    height: 150px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 150px;
+    
+}
+
+#categorieText {
+    color: #3081d1;
+    font-weight: bold;
+}
+
+#totalProducts {
+    color: chocolate;
+}
