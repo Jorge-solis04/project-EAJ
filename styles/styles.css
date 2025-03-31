@@ -63,3 +63,8 @@ header{
     margin: 15px;
     padding: 10px;
 }
+
+.list-aside-config{
+    margin-top: 130px;
+    list-style: none;
+}
