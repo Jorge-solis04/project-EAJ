@@ -72,27 +72,83 @@
           <h2>Products</h2>
 
           <div id="inventoryButtons">
-            <button class="openModalProduct" id="addProductModal">Add product</button>
-            <button id="filterProduct">Filters</button> <!--Boton para abrir modal-->
+            <button class="openModalProduct" id="addProductModal">
+              Add product
+            </button>
+            <button id="filterProduct">Filters</button>
+            <!--Boton para abrir modal-->
           </div>
         </header>
 
         <dialog class="modal" id="modalNewProduct">
-      
           <h3>New product</h3>
           <form class="newProductForm">
-            <input class="infoNewProduct" type="text" placeholder="product name"  autocomplete="off"> 
-            <input class="infoNewProduct" type="text" placeholder="category"  autocomplete="off"> 
-            <input class="infoNewProduct" type="number" placeholder="price"  autocomplete="off"> 
-            <input class="infoNewProduct" type="number" placeholder="quantity"  autocomplete="off"> 
-            <input class="infoNewProduct" type="text" placeholder="Expire Date"  autocomplete="off"> 
-            <button class="closeBtn" id="close">Discard</button>
-            <button class="addProductBtn" id="addProductBtn">Add Product</button>
+
+            <div class="infoNewProduct">
+              <h4>Image Product</h4>
+              <input
+                class="dataProduct"
+                type="url"
+                placeholder="Insert URL Image Product"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="infoNewProduct">
+              <h4>Product name</h4>
+              <input
+                class="dataProduct"
+                type="text"
+                placeholder="product name"
+                autocomplete="off"
+              />
+            </div>
+            <div class="infoNewProduct">
+              <h4>Category</h4>
+              <input
+                class="dataProduct"
+                type="text"
+                placeholder="category"
+                autocomplete="off"
+              />
+            </div>
+            <div class="infoNewProduct">
+              <h4>Price</h4>
+              <input
+                class="dataProduct"
+                type="number"
+                placeholder="price"
+                autocomplete="off"
+              />
+            </div>
+            <div class="infoNewProduct">
+              <h4>Quantity</h4>
+              <input
+                class="dataProduct"
+                type="number"
+                placeholder="quantity"
+                autocomplete="off"
+              />
+            </div>
+            <div class="infoNewProduct">
+              <h4>Expiry Date</h4>
+              <input
+                class="dataProduct"
+                type="text"
+                placeholder="Expire Date"
+                autocomplete="off"
+              />
+            </div>
+
+            <div id="buttonsControlModal">
+              <button class="closeBtn" id="close">Discard</button>
+              <button class="addProductBtn" id="addProductBtn">
+                Add Product
+              </button>
+            </div>
 
           </form>
-        
         </dialog>
-
       </section>
     </main>
     <script src="./js/dashboard.js" type="module"></script>
