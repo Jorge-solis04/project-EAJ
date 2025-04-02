@@ -25,6 +25,7 @@ body {
   background-color: var(--100);
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
 
 aside {
@@ -51,7 +52,11 @@ aside li {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100vh;
+  
 }
 header {
   display: flex;
@@ -59,6 +64,7 @@ header {
   width: 100%;
   background-color: white;
   margin-left: 5px;
+  margin-top: 10px;
 }
 
 .filterByText {
@@ -100,4 +106,37 @@ header {
 
 #totalProducts {
   color: chocolate;
+}
+
+.productsInventory {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 100vh;
+  padding: 20px;
+  background-color: white;
+  margin: 15px 20px;
+}
+
+#headerInventory{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+}
+
+.newProductForm{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.infoNewProduct{
+  margin: 10px;
+  padding: 10px;
 }
