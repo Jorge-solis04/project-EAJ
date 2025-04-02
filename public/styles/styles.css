@@ -21,7 +21,6 @@
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-style: bold;
   background-color: var(--100);
   display: flex;
   flex-direction: row;
@@ -137,6 +136,85 @@ header {
 }
 
 .infoNewProduct{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  
+}
+
+.infoNewProduct h4{
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.dataProduct{
+  width: 250px;
+  border-radius: 5px;
+  height: 40px;
+  outline: none;
+  border: 1px solid #b4b6c5;
+}
+
+
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: AUTO;
+  width: 500px;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.modal h3{
+  font-size: 20px;
+  margin: 15px;
+  
+}
+
+.closeBtn{
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+  outline: none;
+  border: 1px solid #b4b6c5;
+  color: #6d6e7d;
+}
+
+.closeBtn:hover{
+  background-color: #eaeaf2;
+  color: rgb(27, 25, 25);
+}
+
+.addProductBtn{
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #3183d5;
+  color: white;
+  outline: none;
+  border: 1px solid #76b5f3 ;
+  margin-left: 10px;
+
+}
+
+.addProductBtn:hover{
+  background-color: #85b9ed;
+  color: #ffffff;
+}
+
+#buttonsControlModal{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   margin: 10px;
   padding: 10px;
 }
