@@ -82,11 +82,12 @@
 
         <dialog class="modal" id="modalNewProduct">
           <h3>New product</h3>
-          <form class="newProductForm">
+          <form id="newProductForm" class="newProductForm">
 
             <div class="infoNewProduct">
               <h4>Image Product</h4>
               <input
+                id="imageProduct"
                 class="dataProduct"
                 type="url"
                 placeholder="Insert URL Image Product"
@@ -97,42 +98,47 @@
             <div class="infoNewProduct">
               <h4>Product name</h4>
               <input
+                id="nameProduct"
                 class="dataProduct"
                 type="text"
-                placeholder="product name"
+                placeholder="Product Name"
                 autocomplete="off"
               />
             </div>
             <div class="infoNewProduct">
               <h4>Category</h4>
               <input
+                id="categoryProduct"
                 class="dataProduct"
                 type="text"
-                placeholder="category"
+                placeholder="Category"
                 autocomplete="off"
               />
             </div>
             <div class="infoNewProduct">
               <h4>Price</h4>
               <input
+                id="priceProduct"
                 class="dataProduct"
                 type="number"
-                placeholder="price"
+                placeholder="Price"
                 autocomplete="off"
               />
             </div>
             <div class="infoNewProduct">
               <h4>Quantity</h4>
               <input
+                id="quantityProduct"
                 class="dataProduct"
                 type="number"
-                placeholder="quantity"
+                placeholder="Quantity"
                 autocomplete="off"
               />
             </div>
             <div class="infoNewProduct">
               <h4>Expiry Date</h4>
               <input
+                id="dateProduct"
                 class="dataProduct"
                 type="text"
                 placeholder="Expire Date"
@@ -141,8 +147,8 @@
             </div>
 
             <div id="buttonsControlModal">
-              <button class="closeBtn" id="close">Discard</button>
-              <button class="addProductBtn" id="addProductBtn">
+              <button type="reset"  class="closeBtn" id="close">Discard</button>
+              <button type="submit" class="addProductBtn" id="addProductBtn">
                 Add Product
               </button>
             </div>
@@ -161,14 +167,8 @@
             <th>Quantity</th>
           </td>
           <td>
-            <th>Threshold Value</th>
-          </td>
-          <td>
             <th>Expiry Date</th>
-          </td>
-          <td>
-            <th>Availability</th>
-          </td>
+          </td>         
           </thead>         
         </table>
       </section>
