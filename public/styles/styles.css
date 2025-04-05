@@ -219,3 +219,26 @@ header {
   padding: 10px;
 }
 
+.productsTable{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.productsTable tr, th{
+  border: 1px solid
+}
+
+.productsTableBody{
+  text-align: center;
+  border: 1px solid;
+    border-collapse: collapse;
+}
+
+.productsTableBody tr,td{
+  border: 1px solid
+
+}
+
+
+
+

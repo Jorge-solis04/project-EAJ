@@ -83,7 +83,6 @@
         <dialog class="modal" id="modalNewProduct">
           <h3>New product</h3>
           <form id="newProductForm" class="newProductForm">
-
             <div class="infoNewProduct">
               <h4>Image Product</h4>
               <input
@@ -147,29 +146,24 @@
             </div>
 
             <div id="buttonsControlModal">
-              <button type="reset"  class="closeBtn" id="close">Discard</button>
+              <button type="reset" class="closeBtn" id="close">Discard</button>
               <button type="submit" class="addProductBtn" id="addProductBtn">
                 Add Product
               </button>
             </div>
-
           </form>
         </dialog>
-        <table class="table">
+        <table id="productsTable" class="productsTable">
           <thead>
-          <td>
-            <th>Products</th>
-          </td>
-          <td>
-            <th>Buying Price</th>
-          </td>
-          <td>
-            <th>Quantity</th>
-          </td>
-          <td>
-            <th>Expiry Date</th>
-          </td>         
-          </thead>         
+            <tr>
+              <th>Products</th>
+              <th>Buying Price</th>
+              <th>Quantity</th>
+              <th>Expiry Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productsTableBody" class="productsTableBody"></tbody>
         </table>
       </section>
     </main>
