@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Proyecto EAJ</title>
+  </head>
+  <body>
+    <aside>
+      <img
+        src="./assets/pngtree-store-illustration-vector-png-image_9191077.png"
+        alt="tienda logo"
+      />
+      <nav>
+        <ul class="list-aside">
+          <li>Dashboard</li>
+          <li>Inventory</li>
+          <li>Reports</li>
+          <li>Suppliers</li>
+          <li>Orders</li>
+          <li>Manage store</li>
+        </ul>
+
+        <ul class="list-aside-config">
+          <li>Setting</li>
+          <li>Log out</li>
+        </ul>
+      </nav>
+    </aside>
+    <main>
+      <header>
+        <input
+          type="text"
+          placeholder="Search product, supplier, order"
+          class="filterByText"
+        />
+      </header>
+      <!--Seccion debajo del header-->
+      <section class="OverallInventory">
+        <h4>Overall Inventory</h4>
+        <article class="info">
+          <div class="info-card">
+            <h5 id="categorieText">Categories</h5>
+            <h5></h5>
+            <p></p>
+          </div>
+          <div class="info-card">
+            <h5 id="totalProducts">Total Products</h5>
+            <div>
+              <h5></h5>
+              <p></p>
+            </div>
+            <div>
+              <h5></h5>
+              <p></p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!--Seccion principal del menu de inventario-->
+      <section class="productsInventory">
+        <header id="headerInventory">
+          <h2>Products</h2>
+
+          <div id="inventoryButtons">
+            <button class="openModalProduct" id="addProductModal">
+              Add product
+            </button>
+            <button id="filterProduct">Filters</button>
+            <!--Boton para abrir modal-->
+          </div>
+        </header>
+
+        <dialog class="modal" id="modalNewProduct">
+          <h3>New product</h3>
+          <form id="newProductForm" class="newProductForm">
+            <div class="infoNewProduct">
+              <h4>Image Product</h4>
+              <input
+                id="imageProduct"
+                class="dataProduct"
+                type="url"
+                placeholder="Insert URL Image Product"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="infoNewProduct">
+              <h4>Product name</h4>
+              <input
+                id="nameProduct"
+                class="dataProduct"
+                type="text"
+                placeholder="Product Name"
+                autocomplete="off"
+              />
+            </div>
+            <div class="infoNewProduct">
+              <h4>Category</h4>
+              <input
+                id="categoryProduct"
+                class="dataProduct"
+                type="text"
+                placeholder="Category"
+                autocomplete="off"
+              />
+            </div>
+            <div class="infoNewProduct">
+              <h4>Price</h4>
+              <input
+                id="priceProduct"
+                class="dataProduct"
+                type="number"
+                placeholder="Price"
+                autocomplete="off"
+              />
+            </div>
+            <div class="infoNewProduct">
+              <h4>Quantity</h4>
+              <input
+                id="quantityProduct"
+                class="dataProduct"
+                type="number"
+                placeholder="Quantity"
+                autocomplete="off"
+              />
+            </div>
+            <div class="infoNewProduct">
+              <h4>Expiry Date</h4>
+              <input
+                id="dateProduct"
+                class="dataProduct"
+                type="text"
+                placeholder="Expire Date"
+                autocomplete="off"
+              />
+            </div>
+
+            <div id="buttonsControlModal">
+              <button type="reset" class="closeBtn" id="close">Discard</button>
+              <button type="submit" class="addProductBtn" id="addProductBtn">
+                Add Product
+              </button>
+            </div>
+          </form>
+        </dialog>
+        <table id="productsTable" class="productsTable">
+          <thead>
+            <tr>
+              <th>Products</th>
+              <th>Buying Price</th>
+              <th>Quantity</th>
+              <th>Expiry Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productsTableBody" class="productsTableBody"></tbody>
+        </table>
+      </section>
+
+      <article id="modalItemInfo" class="modalItemInfo">
+        
+      </article>
+    </main>
+    <script src="./js/dashboard.js" type="module"></script>
+  </body>
+</html>
