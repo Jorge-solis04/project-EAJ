@@ -239,6 +239,30 @@ header {
 
 }
 
+.modalItem{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
 
 
+
+.modalItem img{
+  width: 100px;
+}
+
+.closeItem {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 

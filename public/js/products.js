@@ -35,6 +35,6 @@ export const deleteProducts = async(id) =>{
 //Sirve para actualizar productos
 export const updateProduct = async (id, newData) => {
     console.log(newData)
-    const product = doc (db, "usuarios", id)
+    const product = doc (db, "Productos", id)
     await updateDoc(product, newData)
 } 
