@@ -351,3 +351,45 @@ header {
   border-radius: 4px;
   margin-bottom: 15px;
 }
+
+.openModalProduct, .filter-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 5px;
+}
+
+/* Botón Add Product */
+.openModalProduct {
+  background-color: #2196F3; /* Azul */
+  color: white;
+}
+
+.openModalProduct:hover {
+  background-color: #0b7dda; /* Azul más oscuro */
+}
+
+/* Botón Filters */
+.filter-btn {
+  background-color: #607d8b; /* Gris azulado */
+  color: white;
+}
+
+.filter-btn:hover {
+  background-color: #455a64; /* Gris azulado más oscuro */
+}
+
+/* Si necesitas iconos (opcional) */
+.openModalProduct::before {
+  content: "+";
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.filter-btn::before {
+  content: "≡";
+  margin-right: 5px;
+}
