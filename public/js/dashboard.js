@@ -124,28 +124,41 @@ export const loadProducts = async () => {
 
       modalItem.innerHTML = `
                 
-                <h2> Details </h2>
+                
+                <div class="details" id="details">
+                  <div class="detailshead">
+                    <h2> Details </h2>
+                  </div>
+                  <div class="detailsText">
+                    <h3> Product name: ${name} </h3>
+                    <br>
+                    <h4> Category: ${category} </h4>
+                    <br>
+                    <h4> Expiry Date: ${expiryDate} </h4>
+                    <h4> Price: $${price} </h4>
+                    <h4> Quantity: ${quantity} </h4>
+                    <div class="idInvisible">
+                      <h4> Product id: ${id} </h4>
+                    </div>
+                    
+                  </div>
+
+                  <div class="detailsButtons">
+                    <button class="closeItem" id="closeItem"> Discard </button>
+                    <button class="editItem" id="editItem"> Edit </button>
+                  </div>
+                
+                </div>
 
                 <div class="editImage">
                     <img src= "${img}">
                 </div>
 
-                <div class="details" id="details">
-                <h3> Product name: ${name} </h3>
-                <h4> Product id: ${id} </h4>
-                <h4> Category: ${category} </h4>
-                <h4> Expiry Date: ${expiryDate} </h4>
-                <h4> Price: $${price} </h4>
-                <h4> Quantity: ${quantity} </h4>
-
-                <div class="detailsButtons">
-                  <button class="closeItem" id="closeItem"> Discard </button>
-                  <button class="editItem" id="editItem"> Edit </button>
-                </div>
                 
-                </div>
-
                 <form id="formEditar" style="display: none;">
+                  <div class="detailshead">
+                    <h2> Details </h2>
+                  </div>
                 <label>
                     Name:
                     <input type="text" id="inputNombre" value="${name}">
