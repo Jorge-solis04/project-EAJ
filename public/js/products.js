@@ -23,7 +23,7 @@ export const getProducts = async () =>{
         arrayProducts.push({ id: doc.id, ...doc.data() })
     })
 
-    console.log("Base de datos:",arrayProducts)
+    
     return arrayProducts
 }
 

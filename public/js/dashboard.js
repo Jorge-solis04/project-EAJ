@@ -40,6 +40,7 @@ onAuthStateChanged(auth, (user) => {
     window.location.href = "index.html";
   } else {
     loadProducts();
+    overallInventory()
   }
 });
 
@@ -67,6 +68,7 @@ addProductForm.addEventListener("submit", async (e) => {
   modal.close();
   addProductForm.reset();
   loadProducts();
+  overallInventory()
 });
 
 btnSearch.addEventListener("click", () => {
@@ -275,3 +277,26 @@ document.addEventListener("click", (e) => {
     menuCategorias.classList.add("oculto");
   }
 });
+
+const overallInventory = async () =>{
+  const categories = document.getElementById("categoriesProducts")
+  const totalProducts = document.getElementById("totalProductsNumber")
+  const total = document.getElementById("totalValue")
+
+  const allProducts = await getProducts()
+  let totalValue = 0 
+  
+
+  allProducts.forEach((e) => {
+      totalValue += Number(e.price)
+  })
+
+  let totalProductsNumber = allProducts.length
+  console.log("......",totalProductsNumber)
+
+  totalProducts.innerText = `${totalProductsNumber}`
+  total.innerText = `$${totalValue}`
+
+  console.log(totalValue)
+}
+
