@@ -243,6 +243,8 @@ header {
 }
 
 .productsTable{
+    margin-top: 20px;
+    margin-left: 20px;
     border: 1px;
     border-collapse: collapse;
 }
@@ -255,14 +257,21 @@ header {
   height: 50px;
 }
 .productsTableBody{
-  text-align: center;
+  
   border: 1px;
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 .productsTableBody tr,td{
   border: 1px;
 
+}
+
+#productsTableHead{
+  text-align: left;
+  color: rgb(176, 169, 169);
+  height: 30px;
+  padding: 5px;
 }
 
 .modalItem{
@@ -401,7 +410,7 @@ header {
   background-color: #d32f2f; /* Rojo más oscuro */
 }
 
-/* Botones del modal de detalles */
+
 .closeItem {
   padding: 8px 16px;
   margin: 4px;
@@ -412,31 +421,31 @@ header {
   cursor: pointer;
 }
 
-/* Primer botón del modal (Discard) */
+
 #closeItem:nth-child(1) {
-  background-color: #f44336; /* Rojo */
+  background-color: #f44336; 
   color: white;
 }
 
-/* Segundo botón del modal (Edit) */
+
 #closeItem:nth-child(2) {
-  background-color: #2196F3; /* Azul */
+  background-color: #2196F3; 
   color: white;
 }
 
-/* Efecto hover para botones del modal */
+
 .closeItem:hover {
   opacity: 0.9;
 }
 
-/* Ajuste para los botones dentro de la tabla */
+
 .rowProducts td:last-child {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
 }
 
-/* Estilo básico para el modal */
+
 .modalItem {
   border: none;
   border-radius: 8px;
@@ -466,12 +475,12 @@ header {
 
 /* Botón Add Product */
 .openModalProduct {
-  background-color: #2196F3; /* Azul */
+  background-color: #2196F3; 
   color: white;
 }
 
 .openModalProduct:hover {
-  background-color: #0b7dda; /* Azul más oscuro */
+  background-color: #0b7dda; 
 }
 
 /* Botón Filtrar */
@@ -491,15 +500,15 @@ header {
 
 /* Botón Filters */
 .filter-btn {
-  background-color: #607d8b; /* Gris azulado */
+  background-color: #607d8b; 
   color: white;
 }
 
 .filter-btn:hover {
-  background-color: #455a64; /* Gris azulado más oscuro */
+  background-color: #455a64; 
 }
 
-/* Si necesitas iconos (opcional) */
+
 .openModalProduct::before {
   content: "+";
   margin-right: 5px;
