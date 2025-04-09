@@ -60,12 +60,27 @@ main {
   
 }
 header {
+  align-items: center;
   display: flex;
   flex-direction: row;
   width: 100%;
   background-color: white;
   margin-left: 5px;
   margin-top: 10px;
+}
+
+#btnSearch {
+  height: 40px;
+  width: 80px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#btnSearch:hover {
+  background-color: #0b7dda;
 }
 
 .filterByText {
@@ -294,7 +309,7 @@ header {
 
 .modalItem img{
   width: 200px;
-  border-radius: 25px;
+  margin: 40px;
 }
 
 .details-container{
@@ -311,6 +326,27 @@ header {
   margin-top: auto;
 }
 
+#nombreProducto {
+  color:  gray;
+}
+
+/* Fuentes de los detalles*/
+.detailsText h3{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.detailsText h4{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.idInvisible {
+  color: transparent;
+}
+
+
+
 .closeItem {
   padding: 8px 16px;
   background-color: #dc3545;
@@ -318,6 +354,16 @@ header {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+#formEditar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#botoneseditar {
+  margin-top: auto;
 }
 
 .editItem {
@@ -334,6 +380,7 @@ header {
 }
 
 .edit-btn {
+  margin-top: auto;
   padding: 4px 12px;
   background-color: #4CAF50;
   color: white;
@@ -341,6 +388,8 @@ header {
   border-radius: 4px; 
   cursor: pointer;
 }
+
+
 
 .edit-btn:hover{
   background-color: #3e8e41;
@@ -457,7 +506,7 @@ header {
 
 
 .modalItem img {
-  max-width: 200px;
+  max-width: 120px;
   height: auto;
   border-radius: 4px;
   margin-bottom: 15px;
