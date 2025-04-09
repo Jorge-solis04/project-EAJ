@@ -3,6 +3,8 @@ import {
   deleteProducts,
   getProducts,
   updateProduct,
+  filterByCategory,
+  productsBySearch
 } from "./products.js";
 import { auth } from "./firebase-config.js";
 import {
@@ -15,6 +17,23 @@ const closeModal = document.querySelector(".closeBtn");
 const modal = document.getElementById("modalNewProduct");
 const addProductForm = document.getElementById("newProductForm");
 const modalItemInfo = document.getElementById("modalItemInfo");
+const btnFiltro = document.getElementById("filterProduct");
+const menuCategorias = document.getElementById("menuCategorias");
+const inputSearch = document.getElementById("inputSearch");
+const btnSearch = document.getElementById("btnSearch");
+
+const categorias = [
+  "Todos",
+  "Lácteos",
+  "Bebidas",
+  "Juguetes",
+  "Farmacia",
+  "Electrónica",
+  "Abarrotes",
+  "Limpieza",
+  "Frutas y verduras",
+  "Salchichonería",
+];
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
@@ -50,7 +69,15 @@ addProductForm.addEventListener("submit", async (e) => {
   loadProducts();
 });
 
-const loadProducts = async () => {
+btnSearch.addEventListener("click", () => {
+  const text = inputSearch.value.trim().toLowerCase();
+  productsBySearch(text);
+});
+
+
+
+
+export const loadProducts = async () => {
   productsTableBody.innerHTML = "";
   const products = await getProducts();
 
@@ -59,7 +86,7 @@ const loadProducts = async () => {
     row.classList.add("rowProducts");
     row.innerHTML = `
          <td> ${item.name} </td>
-         <td> ${item.price} </td>
+         <td> $${item.price} </td>
          <td> ${item.quantity} </td>
          <td> ${item.expiryDate} </td>
          <button class="btnDetails" item-name="${item.name}" item-id="${item.id}"  item-category="${item.category}" item-expiryDate="${item.expiryDate}" item-price="${item.price}" item-quantity="${item.quantity}" item-imgUrl="${item.imgUrl}" >More Details</button>
@@ -136,7 +163,12 @@ const loadProducts = async () => {
                     ID:
                     <input type="text" id="idItemForChange" value=${id}> 
                 
+
                 <button class="edit-btn" type="submit">Save changes</button>
+
+               
+                <button id="closeEdit" class="closeEdit">Discard</button>
+
             </form>
 
 
@@ -153,18 +185,23 @@ const loadProducts = async () => {
         forms.style.display = "block";
       });
 
+      modalItem.querySelector(".closeEdit").addEventListener("click", () => {
+        modalItem.close();
+        modalItem.remove();
+      });
+
       formEditar.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const newId = document.getElementById("idItemForChange").value
-        const name= document.getElementById("inputNombre").value;
+        const newId = document.getElementById("idItemForChange").value;
+        const name = document.getElementById("inputNombre").value;
         const category = document.getElementById("inputCategory").value;
         const price = document.getElementById("inputPrice").value;
         const imgUrl = document.getElementById("inputImg").value;
-        console.log(newId)
+        console.log(newId);
 
-        await updateProduct(newId, {name, category, price, imgUrl});
-        loadProducts()
+        await updateProduct(newId, { name, category, price, imgUrl });
+        loadProducts();
         modalItem.close();
         modalItem.remove();
       });
@@ -176,3 +213,65 @@ const loadProducts = async () => {
     });
   });
 };
+
+export const loadProductByFilter = (productos) => {
+  productsTableBody.innerHTML = ""; 
+
+  if (productos.length === 0) {
+    productsTableBody.innerHTML = "<p>No hay productos en esta categoría.</p>";
+    return;
+  }
+
+  productos.forEach((item) => {
+    const row = document.createElement("tr");
+    row.classList.add("rowProducts");
+    row.innerHTML = `
+         <td> ${item.name} </td>
+         <td> $${item.price} </td>
+         <td> ${item.quantity} </td>
+         <td> ${item.expiryDate} </td>
+         <button class="btnDetails" item-name="${item.name}" item-id="${item.id}"  item-category="${item.category}" item-expiryDate="${item.expiryDate}" item-price="${item.price}" item-quantity="${item.quantity}" item-imgUrl="${item.imgUrl}" >More Details</button>
+         <button class="btnDelete" item-id="${item.id}">Delete </button>
+        `;
+    productsTableBody.appendChild(row);
+  });
+};
+
+
+
+const mostrarMenuCategorias = async () => {
+  menuCategorias.innerHTML = "";
+
+  categorias.forEach((cat) => {
+    const btnCat = document.createElement("button");
+    btnCat.textContent = cat;
+
+    btnCat.addEventListener("click", () => {
+      if (cat === "Todos") {
+        loadProducts(); // Muestra todos
+      } else {
+        filterByCategory(cat);
+
+      }
+
+      menuCategorias.classList.add("oculto"); // Cierra el menú
+    });
+
+    menuCategorias.appendChild(btnCat);
+  });
+
+  menuCategorias.classList.toggle("oculto");
+};
+
+btnFiltro.addEventListener("click", mostrarMenuCategorias);
+
+
+
+
+
+// Cerrar el menú si haces clic fuera de él
+document.addEventListener("click", (e) => {
+  if (!menuCategorias.contains(e.target) && e.target !== btnFiltro) {
+    menuCategorias.classList.add("oculto");
+  }
+});
