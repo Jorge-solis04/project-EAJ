@@ -103,6 +103,7 @@ export const loadProducts = async () => {
       if (confirm("wanna delete?")) {
         await deleteProducts(id);
         loadProducts();
+        overallInventory()
       }
     });
   });
@@ -204,6 +205,7 @@ export const loadProducts = async () => {
 
         await updateProduct(newId, { name, category, price, imgUrl });
         loadProducts();
+        overallInventory()
         modalItem.close();
         modalItem.remove();
       });
