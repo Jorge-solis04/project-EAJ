@@ -130,7 +130,8 @@ export const loadProducts = async () => {
                     <h2> Details </h2>
                   </div>
                   <div class="detailsText">
-                    <h3> Product name: ${name} </h3>
+                    <br>
+                    <h3 id="nombreProducto"> ${name} </h3>
                     <br>
                     <h4> Category: ${category} </h4>
                     <br>
@@ -154,37 +155,36 @@ export const loadProducts = async () => {
                     <img src= "${img}">
                 </div>
 
-                
                 <form id="formEditar" style="display: none;">
                   <div class="detailshead">
                     <h2> Details </h2>
                   </div>
-                <label>
-                    Name:
-                    <input type="text" id="inputNombre" value="${name}">
-                </label>
-                <label>
-                    Category:
-                    <input type="text" id="inputCategory" value="${category}">
-                </label>
-                <label>
-                    Price:
-                    <input type="text" id="inputPrice" value="${price}">
+                  <div id="inputEditar">
+                      <label>
+                        Name:
+                        <input type="text" id="inputNombre" value="${name}">
+                    </label>
+                    <label>
+                        Category:
+                        <input type="text" id="inputCategory" value="${category}">
+                    </label>
+                    <label>
+                        Price:
+                        <input type="text" id="inputPrice" value="${price}">
 
-                </label>
-                <label>
-                    Image:
-                    <input type="text" id="inputImg" value="${img}">
-                </label>
-                    ID:
-                    <input type="text" id="idItemForChange" value=${id}> 
+                    </label>
+                    <label>
+                        Image:
+                        <input type="text" id="inputImg" value="${img}">
+                    </label>
+                        ID:
+                        <input type="text" id="idItemForChange" value=${id}> 
+                  </div>
                 
-
-                <button class="edit-btn" type="submit">Save changes</button>
-
-               
-                <button id="closeEdit" class="closeEdit">Discard</button>
-
+                <div id="botoneseditar">
+                  <button class="edit-btn" type="submit">Save changes</button>
+                  <button id="closeEdit" class="closeEdit">Discard</button>
+                </div>
             </form>
 
 
