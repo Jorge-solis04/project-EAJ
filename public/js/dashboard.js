@@ -103,6 +103,7 @@ export const loadProducts = async () => {
       if (confirm("wanna delete?")) {
         await deleteProducts(id);
         loadProducts();
+        overallInventory()
       }
     });
   });
@@ -125,7 +126,7 @@ export const loadProducts = async () => {
                 
                 <h2> Details </h2>
 
-                <div>
+                <div class="editImage">
                     <img src= "${img}">
                 </div>
 
@@ -136,8 +137,12 @@ export const loadProducts = async () => {
                 <h4> Expiry Date: ${expiryDate} </h4>
                 <h4> Price: $${price} </h4>
                 <h4> Quantity: ${quantity} </h4>
-                <button class="closeItem" id="closeItem"> Discard </button>
-                <button class="editItem" id="editItem"> Edit </button>
+
+                <div class="detailsButtons">
+                  <button class="closeItem" id="closeItem"> Discard </button>
+                  <button class="editItem" id="editItem"> Edit </button>
+                </div>
+                
                 </div>
 
                 <form id="formEditar" style="display: none;">
@@ -161,7 +166,10 @@ export const loadProducts = async () => {
                     ID:
                     <input type="text" id="idItemForChange" value=${id}> 
                 
-                <button type="submit">Save changes</button>
+
+                <button class="edit-btn" type="submit">Save changes</button>
+
+               
                 <button id="closeEdit" class="closeEdit">Discard</button>
 
             </form>
@@ -197,6 +205,7 @@ export const loadProducts = async () => {
 
         await updateProduct(newId, { name, category, price, imgUrl });
         loadProducts();
+        overallInventory()
         modalItem.close();
         modalItem.remove();
       });
