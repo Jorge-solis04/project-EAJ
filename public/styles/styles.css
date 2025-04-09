@@ -261,7 +261,7 @@ header {
 
 .modalItem img{
   width: 200px;
-  border-radius: 25px;
+  margin: 40px;
 }
 
 .details-container{
@@ -277,6 +277,23 @@ header {
 .detailsButtons {
   margin-top: auto;
 }
+
+/* Fuentes de los detalles*/
+.detailsText h3{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.detailsText h4{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.idInvisible {
+  color: transparent;
+}
+
+
 
 .closeItem {
   padding: 8px 16px;
@@ -301,6 +318,7 @@ header {
 }
 
 .edit-btn {
+  margin-top: auto;
   padding: 4px 12px;
   background-color: #4CAF50;
   color: white;
@@ -424,7 +442,7 @@ header {
 
 
 .modalItem img {
-  max-width: 200px;
+  max-width: 120px;
   height: auto;
   border-radius: 4px;
   margin-bottom: 15px;
