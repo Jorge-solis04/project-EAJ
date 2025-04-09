@@ -98,11 +98,29 @@ header {
   display: flex;
   flex-direction: column;
   margin: 20px 150px;
+  text-align: center;
+}
+
+
+
+#infoCardTwo{
+  display: flex;
+  flex-direction: row;
+  margin-right: 15px;
+  justify-content: space-between;
+  width: 150px;
+  
+}
+
+.infoCardTwo{
+  margin: 5px;
+  text-align: center;
 }
 
 #categorieText {
   color: #3081d1;
-  font-weight: bold;
+  margin-bottom: 10px;
+
 }
 
 #totalProducts {
