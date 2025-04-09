@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
       rel="stylesheet"
     />
 
@@ -39,29 +39,33 @@
       <header>
         <input
           type="text"
-          placeholder="Search product, supplier, order"
+          id="inputSearch"
+          placeholder="Search product..."
           class="filterByText"
         />
+        <button id="btnSearch">Search</button>
       </header>
       <!--Seccion debajo del header-->
       <section class="OverallInventory">
-        <h4>Overall Inventory</h4>
+        <h2>Overall Inventory</h2>
         <article class="info">
           <div class="info-card">
-            <h5 id="categorieText">Categories</h5>
-            <h5></h5>
-            <p></p>
+            <h3 id="categorieText">Categories</h3>
+            <h3 id="categoriesProducts"> 7 </h3>
+            <p>For now...</p>
           </div>
           <div class="info-card">
-            <h5 id="totalProducts">Total Products</h5>
-            <div>
-              <h5></h5>
-              <p></p>
+            <h3 id="totalProducts">Total Products</h3>
+          <div id="infoCardTwo">
+            <div class="infoCardTwo">
+              <h3 id="totalProductsNumber"></h3>
+              <p>Items</p>
             </div>
-            <div>
-              <h5></h5>
-              <p></p>
+            <div class="infoCardTwo">
+              <h3 id="totalValue"></h3>
+              <p>Total Value</p>
             </div>
+          </div>
           </div>
         </article>
       </section>
@@ -72,11 +76,9 @@
           <h2>Products</h2>
 
           <div id="inventoryButtons">
-            <button class="openModalProduct" id="addProductModal">
-              Add product
-            </button>
+            <button class="openModalProduct" id="addProductModal">Add product</button>
             <button id="filterProduct">Filters</button>
-            <!--Boton para abrir modal-->
+            <div id="menuCategorias" class="menu-categorias oculto"></div>
           </div>
         </header>
 
@@ -106,13 +108,17 @@
             </div>
             <div class="infoNewProduct">
               <h4>Category</h4>
-              <input
-                id="categoryProduct"
-                class="dataProduct"
-                type="text"
-                placeholder="Category"
-                autocomplete="off"
-              />
+              <select id="categoryProduct" class="dataProduct">
+                <option value="">Selecciona una categoria</option>
+                <option value="lacteos">Lacteos</option>
+                <option value="Bebidas">Bebidas</option>
+                <option value="Juguetes">Juguetes</option>
+                <option value="Farmacia">Farmacia</option>
+                <option value="Electronica">Electronica</option>
+                <option value="Abarrotes">Abarrotes</option>
+                <option value="Limpieza">Limpieza</option>
+                <option value="Frutas y verduras">Frutas y verduras</option>
+              </select>
             </div>
             <div class="infoNewProduct">
               <h4>Price</h4>
@@ -139,7 +145,7 @@
               <input
                 id="dateProduct"
                 class="dataProduct"
-                type="text"
+                type="date"
                 placeholder="Expire Date"
                 autocomplete="off"
               />
@@ -153,23 +159,24 @@
             </div>
           </form>
         </dialog>
-        <table id="productsTable" class="productsTable">
-          <thead>
-            <tr>
-              <th>Products</th>
-              <th>Buying Price</th>
-              <th>Quantity</th>
-              <th>Expiry Date</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="productsTableBody" class="productsTableBody"></tbody>
-        </table>
+
+        
+          <table id="productsTable" class="productsTable">
+            <thead>
+              <tr>
+                <th>Products</th>
+                <th>Buying Price</th>
+                <th>Quantity</th>
+                <th>Expiry Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody" class="productsTableBody"></tbody>
+          </table>
+        
       </section>
 
-      <article id="modalItemInfo" class="modalItemInfo">
-        
-      </article>
+      <article id="modalItemInfo" class="modalItemInfo"></article>
     </main>
     <script src="./js/dashboard.js" type="module"></script>
   </body>
