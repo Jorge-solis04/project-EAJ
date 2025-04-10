@@ -21,7 +21,7 @@ const btnFiltro = document.getElementById("filterProduct");
 const menuCategorias = document.getElementById("menuCategorias");
 const inputSearch = document.getElementById("inputSearch");
 const btnSearch = document.getElementById("btnSearch");
-
+const logOutBtn = document.getElementById("logOutBtn")
 const categorias = [
   "Todos",
   "Lácteos",
@@ -42,6 +42,16 @@ onAuthStateChanged(auth, (user) => {
     loadProducts();
     overallInventory()
   }
+});
+
+logOutBtn.addEventListener("click", async() => {
+  try {
+    await signOut(auth);
+    console.log("LogOut succesfully");
+    window.location.href = "login.html";
+} catch (error) {
+    console.error("Error to try logOut:", error);
+}
 });
 
 // Funcion para abrir modal
@@ -170,16 +180,21 @@ export const loadProducts = async () => {
                     </label>
                     <label>
                         Price:
-                        <input type="text" id="inputPrice" value="${price}">
-
+                        <input type="text" id="inputPrice" value="${price}"
+                    </label>
+                    <label>
+                        Quantity:
+                        <input type="text" id="inputQuantity" value="${quantity}"
                     </label>
                     <label>
                         Image:
                         <input type="text" id="inputImg" value="${img}">
                     </label>
+                    <label>
                         ID:
                         <input type="text" id="idItemForChange" value=${id}> 
-                  </div>
+                    </label>
+                        </div>
                 
                 <div id="botoneseditar">
                   <button class="edit-btn" type="submit">Save changes</button>
@@ -211,12 +226,13 @@ export const loadProducts = async () => {
 
         const newId = document.getElementById("idItemForChange").value;
         const name = document.getElementById("inputNombre").value;
+        const quantity = document.getElementById("inputQuantity").value
         const category = document.getElementById("inputCategory").value;
         const price = document.getElementById("inputPrice").value;
         const imgUrl = document.getElementById("inputImg").value;
         console.log(newId);
 
-        await updateProduct(newId, { name, category, price, imgUrl });
+        await updateProduct(newId, { name, category, quantity, price, imgUrl });
         loadProducts();
         overallInventory()
         modalItem.close();

@@ -92,8 +92,25 @@ header {
 .list-aside-config {
   margin-top: 130px;
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
+#logOutBtn{
+  background-color: rgb(201, 197, 197);
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+#logOutBtn:hover{ 
+  background-color: #a3a5a5;
+}
 .OverallInventory {
   width: auto;
   padding: 10px;
@@ -258,6 +275,8 @@ header {
 }
 
 .productsTable{
+    margin-top: 20px;
+    margin-left: 20px;
     border: 1px;
     border-collapse: collapse;
 }
@@ -270,9 +289,9 @@ header {
   height: 50px;
 }
 .productsTableBody{
-  text-align: center;
+  width: auto;
   border: 1px;
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 .productsTableBody tr,td{
@@ -280,18 +299,32 @@ header {
 
 }
 
+.rowProducts:hover{
+  background-color: #eaebf1;
+}
+
+#productsTableHead{
+  text-align: left;
+  color: rgb(176, 169, 169);
+  height: 30px;
+  padding: 5px;
+}
+
 .modalItem{
   display: flex;
-  height: 350px;
+  
+  height: 400px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
   border: none;
   background-color: white;
   border-radius: 10px;
-  padding: 10px;
+
+  padding: 20px;
+  max-width: 480px;
+  width: 90%;
 }
 
 .modalItem h2{
@@ -420,6 +453,35 @@ header {
   border-radius: 4px;
   border-color: #6d6e7d;
 }
+
+#inputEditar{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+#inputEditar label input{
+  margin: 10px;
+  width: 150px;
+  border-radius: 5px;
+  height: 20px;
+  outline: none;
+  border: 1px solid #b4b6c5;
+}
+
+#botoneseditar{
+  margin-top: 25px;
+}
+
+#closeEdit{
+  margin-top: auto;
+    padding: 4px 12px;
+    background-color: #7b6f6f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 .btnDetails, .btnDelete {
   padding: 8px 16px;
   border: none;
@@ -432,7 +494,7 @@ header {
 
 /* Botón More Details - Estilo estático */
 .btnDetails {
-  background-color: #4CAF50; /* Verde */
+  background-color: #59875a; /* Verde */
   color: white;
 }
 
@@ -442,7 +504,7 @@ header {
 
 /* Botón Delete - Estilo estático */
 .btnDelete {
-  background-color: #f44336; /* Rojo */
+  background-color: #b8362d; /* Rojo */
   color: white;
 }
 
@@ -450,7 +512,7 @@ header {
   background-color: #d32f2f; /* Rojo más oscuro */
 }
 
-/* Botones del modal de detalles */
+
 .closeItem {
   padding: 8px 16px;
   margin: 4px;
@@ -461,39 +523,29 @@ header {
   cursor: pointer;
 }
 
-/* Primer botón del modal (Discard) */
+
 #closeItem:nth-child(1) {
-  background-color: #f44336; /* Rojo */
+  background-color: #f44336; 
   color: white;
 }
 
-/* Segundo botón del modal (Edit) */
+
 #closeItem:nth-child(2) {
-  background-color: #2196F3; /* Azul */
+  background-color: #2196F3; 
   color: white;
 }
 
-/* Efecto hover para botones del modal */
+
 .closeItem:hover {
   opacity: 0.9;
 }
 
-/* Ajuste para los botones dentro de la tabla */
+
 .rowProducts td:last-child {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
 }
-
-/* Estilo básico para el modal */
-.modalItem {
-  border: none;
-  border-radius: 8px;
-  padding: 20px;
-  max-width: 500px;
-  width: 90%;
-}
-
 
 
 .modalItem img {
@@ -515,12 +567,12 @@ header {
 
 /* Botón Add Product */
 .openModalProduct {
-  background-color: #2196F3; /* Azul */
+  background-color: #2196F3; 
   color: white;
 }
 
 .openModalProduct:hover {
-  background-color: #0b7dda; /* Azul más oscuro */
+  background-color: #0b7dda; 
 }
 
 /* Botón Filtrar */
@@ -540,15 +592,15 @@ header {
 
 /* Botón Filters */
 .filter-btn {
-  background-color: #607d8b; /* Gris azulado */
+  background-color: #607d8b; 
   color: white;
 }
 
 .filter-btn:hover {
-  background-color: #455a64; /* Gris azulado más oscuro */
+  background-color: #455a64; 
 }
 
-/* Si necesitas iconos (opcional) */
+
 .openModalProduct::before {
   content: "+";
   margin-right: 5px;
