@@ -60,12 +60,27 @@ main {
   
 }
 header {
+  align-items: center;
   display: flex;
   flex-direction: row;
   width: 100%;
   background-color: white;
   margin-left: 5px;
   margin-top: 10px;
+}
+
+#btnSearch {
+  height: 40px;
+  width: 80px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#btnSearch:hover {
+  background-color: #0b7dda;
 }
 
 .filterByText {
@@ -77,8 +92,25 @@ header {
 .list-aside-config {
   margin-top: 130px;
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
+#logOutBtn{
+  background-color: rgb(201, 197, 197);
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+#logOutBtn:hover{ 
+  background-color: #a3a5a5;
+}
 .OverallInventory {
   width: auto;
   padding: 10px;
@@ -257,7 +289,7 @@ header {
   height: 50px;
 }
 .productsTableBody{
-  
+  width: auto;
   border: 1px;
   border-collapse: collapse;
 }
@@ -265,6 +297,10 @@ header {
 .productsTableBody tr,td{
   border: 1px;
 
+}
+
+.rowProducts:hover{
+  background-color: #eaebf1;
 }
 
 #productsTableHead{
@@ -276,16 +312,19 @@ header {
 
 .modalItem{
   display: flex;
-  height: 350px;
+  
+  height: 400px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
   border: none;
   background-color: white;
   border-radius: 10px;
-  padding: 10px;
+
+  padding: 20px;
+  max-width: 480px;
+  width: 90%;
 }
 
 .modalItem h2{
@@ -294,7 +333,7 @@ header {
 
 .modalItem img{
   width: 200px;
-  border-radius: 25px;
+  margin: 40px;
 }
 
 .details-container{
@@ -311,6 +350,27 @@ header {
   margin-top: auto;
 }
 
+#nombreProducto {
+  color:  gray;
+}
+
+/* Fuentes de los detalles*/
+.detailsText h3{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.detailsText h4{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.idInvisible {
+  color: transparent;
+}
+
+
+
 .closeItem {
   padding: 8px 16px;
   background-color: #dc3545;
@@ -318,6 +378,16 @@ header {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+#formEditar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#botoneseditar {
+  margin-top: auto;
 }
 
 .editItem {
@@ -334,6 +404,7 @@ header {
 }
 
 .edit-btn {
+  margin-top: auto;
   padding: 4px 12px;
   background-color: #4CAF50;
   color: white;
@@ -341,6 +412,8 @@ header {
   border-radius: 4px; 
   cursor: pointer;
 }
+
+
 
 .edit-btn:hover{
   background-color: #3e8e41;
@@ -380,6 +453,35 @@ header {
   border-radius: 4px;
   border-color: #6d6e7d;
 }
+
+#inputEditar{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+#inputEditar label input{
+  margin: 10px;
+  width: 150px;
+  border-radius: 5px;
+  height: 20px;
+  outline: none;
+  border: 1px solid #b4b6c5;
+}
+
+#botoneseditar{
+  margin-top: 25px;
+}
+
+#closeEdit{
+  margin-top: auto;
+    padding: 4px 12px;
+    background-color: #7b6f6f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 .btnDetails, .btnDelete {
   padding: 8px 16px;
   border: none;
@@ -392,7 +494,7 @@ header {
 
 /* Botón More Details - Estilo estático */
 .btnDetails {
-  background-color: #4CAF50; /* Verde */
+  background-color: #59875a; /* Verde */
   color: white;
 }
 
@@ -402,7 +504,7 @@ header {
 
 /* Botón Delete - Estilo estático */
 .btnDelete {
-  background-color: #f44336; /* Rojo */
+  background-color: #b8362d; /* Rojo */
   color: white;
 }
 
@@ -446,18 +548,8 @@ header {
 }
 
 
-.modalItem {
-  border: none;
-  border-radius: 8px;
-  padding: 20px;
-  max-width: 500px;
-  width: 90%;
-}
-
-
-
 .modalItem img {
-  max-width: 200px;
+  max-width: 120px;
   height: auto;
   border-radius: 4px;
   margin-bottom: 15px;

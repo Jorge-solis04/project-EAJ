@@ -21,7 +21,7 @@ const btnFiltro = document.getElementById("filterProduct");
 const menuCategorias = document.getElementById("menuCategorias");
 const inputSearch = document.getElementById("inputSearch");
 const btnSearch = document.getElementById("btnSearch");
-
+const logOutBtn = document.getElementById("logOutBtn")
 const categorias = [
   "Todos",
   "Lácteos",
@@ -42,6 +42,16 @@ onAuthStateChanged(auth, (user) => {
     loadProducts();
     overallInventory()
   }
+});
+
+logOutBtn.addEventListener("click", async() => {
+  try {
+    await signOut(auth);
+    console.log("LogOut succesfully");
+    window.location.href = "login.html";
+} catch (error) {
+    console.error("Error to try logOut:", error);
+}
 });
 
 // Funcion para abrir modal
@@ -124,54 +134,72 @@ export const loadProducts = async () => {
 
       modalItem.innerHTML = `
                 
-                <h2> Details </h2>
+                
+                <div class="details" id="details">
+                  <div class="detailshead">
+                    <h2> Details </h2>
+                  </div>
+                  <div class="detailsText">
+                    <br>
+                    <h3 id="nombreProducto"> ${name} </h3>
+                    <br>
+                    <h4> Category: ${category} </h4>
+                    <br>
+                    <h4> Expiry Date: ${expiryDate} </h4>
+                    <h4> Price: $${price} </h4>
+                    <h4> Quantity: ${quantity} </h4>
+                    <div class="idInvisible">
+                      <h4> Product id: ${id} </h4>
+                    </div>
+                    
+                  </div>
+
+                  <div class="detailsButtons">
+                    <button class="closeItem" id="closeItem"> Discard </button>
+                    <button class="editItem" id="editItem"> Edit </button>
+                  </div>
+                
+                </div>
 
                 <div class="editImage">
                     <img src= "${img}">
                 </div>
 
-                <div class="details" id="details">
-                <h3> Product name: ${name} </h3>
-                <h4> Product id: ${id} </h4>
-                <h4> Category: ${category} </h4>
-                <h4> Expiry Date: ${expiryDate} </h4>
-                <h4> Price: $${price} </h4>
-                <h4> Quantity: ${quantity} </h4>
-
-                <div class="detailsButtons">
-                  <button class="closeItem" id="closeItem"> Discard </button>
-                  <button class="editItem" id="editItem"> Edit </button>
-                </div>
-                
-                </div>
-
                 <form id="formEditar" style="display: none;">
-                <label>
-                    Name:
-                    <input type="text" id="inputNombre" value="${name}">
-                </label>
-                <label>
-                    Category:
-                    <input type="text" id="inputCategory" value="${category}">
-                </label>
-                <label>
-                    Price:
-                    <input type="text" id="inputPrice" value="${price}">
-
-                </label>
-                <label>
-                    Image:
-                    <input type="text" id="inputImg" value="${img}">
-                </label>
-                    ID:
-                    <input type="text" id="idItemForChange" value=${id}> 
+                  <div class="detailshead">
+                    <h2> Details </h2>
+                  </div>
+                  <div id="inputEditar">
+                      <label>
+                        Name:
+                        <input type="text" id="inputNombre" value="${name}">
+                    </label>
+                    <label>
+                        Category:
+                        <input type="text" id="inputCategory" value="${category}">
+                    </label>
+                    <label>
+                        Price:
+                        <input type="text" id="inputPrice" value="${price}"
+                    </label>
+                    <label>
+                        Quantity:
+                        <input type="text" id="inputQuantity" value="${quantity}"
+                    </label>
+                    <label>
+                        Image:
+                        <input type="text" id="inputImg" value="${img}">
+                    </label>
+                    <label>
+                        ID:
+                        <input type="text" id="idItemForChange" value=${id}> 
+                    </label>
+                        </div>
                 
-
-                <button class="edit-btn" type="submit">Save changes</button>
-
-               
-                <button id="closeEdit" class="closeEdit">Discard</button>
-
+                <div id="botoneseditar">
+                  <button class="edit-btn" type="submit">Save changes</button>
+                  <button id="closeEdit" class="closeEdit">Discard</button>
+                </div>
             </form>
 
 
@@ -198,12 +226,13 @@ export const loadProducts = async () => {
 
         const newId = document.getElementById("idItemForChange").value;
         const name = document.getElementById("inputNombre").value;
+        const quantity = document.getElementById("inputQuantity").value
         const category = document.getElementById("inputCategory").value;
         const price = document.getElementById("inputPrice").value;
         const imgUrl = document.getElementById("inputImg").value;
         console.log(newId);
 
-        await updateProduct(newId, { name, category, price, imgUrl });
+        await updateProduct(newId, { name, category, quantity, price, imgUrl });
         loadProducts();
         overallInventory()
         modalItem.close();
